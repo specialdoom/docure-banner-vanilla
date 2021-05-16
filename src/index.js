@@ -45,6 +45,17 @@ const docureBannerTitleStyle = `
   }
 `;
 
+const docureBannerContentStyle = `
+  :host {
+    height: 60%;
+    width: 80%;
+  }
+  
+  :host div {
+    color: #fff;
+  }
+`;
+
 class DocureBanner extends HTMLElement {
   constructor() {
     super();
@@ -99,8 +110,33 @@ class DocureBannerTitle extends HTMLElement {
   }
 }
 
+class DocureBannerContent extends HTMLElement {
+  constructor() {
+    super();
+    console.log('[DocureBannerContent] constructor');
+  }
+
+  connectedCallback() {
+    console.log('[DocureBannerContent] connectedCallback - added in DOM');
+
+    const shadowDOM = this.attachShadow({ mode: 'closed' });
+
+    const styleElement = document.createElement('style');
+    styleElement.appendChild(document.createTextNode(docureBannerContentStyle));
+
+    const divElement = document.createElement('div');
+    divElement.innerHTML = '<slot/>';
+
+    shadowDOM.appendChild(styleElement);
+    shadowDOM.appendChild(divElement);
+  }
+}
+
 if (!customElements.get('docure-banner-vanilla-title'))
   customElements.define('docure-banner-vanilla-title', DocureBannerTitle);
+
+if (!customElements.get('docure-banner-vanilla-content'))
+  customElements.define('docure-banner-vanilla-content', DocureBannerContent);
 
 if (!customElements.get('docure-banner-vanilla'))
   customElements.define('docure-banner-vanilla', DocureBanner);
