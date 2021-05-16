@@ -1,0 +1,24 @@
+{
+  "name": "@specialdoom/docure-banner-vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/specialdoom/docure-banner-vanilla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/specialdoom/docure-banner-vanilla/issues"
+  },
+  "homepage": "https://github.com/specialdoom/docure-banner-vanilla#readme",
+  "devDependencies": {
+    "snowpack": "^3.4.0"
+  }
+}
